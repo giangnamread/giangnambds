@@ -27,6 +27,57 @@
 <marquee behavior="scroll" direction="left" style="color: red; font-size: 18px; font-weight: bold; padding: 10px 0; background-color: #fffbe6;">
     🔥 GiangNamBĐS - Tư vấn đầu tư uy tín tại Quảng Trị! Liên hệ ngay: 0915 050 065 (Zalo) để được hỗ trợ tốt nhất!
 </marquee>
-
+</style>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+<div id="message">Chúc bạn đầu tư thành công cùng GiangNamBĐS!</div>
+<a href="#duan" class="button">Xem Dự Án</a>
+<audio id="fireworkSound" src="fireworks.mp3" preload="auto"></audio>
+<section id="duan" style="padding: 100px; color: white;">
+  <h1>Giới thiệu các dự án</h1>
+  <p>Thông tin chi tiết về các dự án bất động sản tại Quảng Trị...</p>
+</section>
+<script>
+  function createRain() {
+    for (let i = 0; i < 100; i++) {
+      const drop = document.createElement("div");
+      drop.className = "raindrop";
+      drop.style.left = `${Math.random() * 100}vw`;
+      drop.style.animationDelay = `${Math.random()}s`;
+      drop.style.animationDuration = `${0.5 + Math.random()}s`;
+      document.body.appendChild(drop);
+    }
+  }
+  function firework() {
+    const duration = 5 * 1000;
+    const end = Date.now() + duration;
+    const audio = document.getElementById("e:\WEB BĐS\fireworks.mp3");
+    if (audio) audio.play().catch(() => {});
+    (function frame() {
+      confetti({
+        particleCount: 7,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 7,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      } else {
+        document.getElementById("message").style.display = "block";
+      }
+    })();
+  }
+  window.onload = () => {
+    createRain();
+    firework();
+  };
+</script>
 </body>
 </html>
