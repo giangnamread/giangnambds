@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Bất Động Sản - Nguyễn Giang Nam</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .button { padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px; display: inline-block; }
+        .icon { width: 30px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+<h1>Thông tin lô đất cần bán</h1>
+
+<!-- Nút gọi điện thoại -->
+<a href="tel:0915050065" class="button">Gọi ngay: 0915 050 065</a>
+
+<!-- Zalo -->
+<a href="https://zalo.me/0915050065" target="_blank">
+    <img src="https://stc-zaloprofile.zdn.vn/pc/v1/images/zalo_sharelogo.png" class="icon" alt="Zalo" /> Chat Zalo
+</a>
+
+<!-- Facebook cá nhân -->
+<a href="https://www.facebook.com/share/164KsdmDnd/?mibextid=wwXIfr" target="_blank" style="margin-left: 10px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" class="icon" alt="Facebook" /> Facebook: Nguyễn Giang Nam
+</a>
+
+<hr>
+
+<!-- Đếm lượt xem bài viết -->
+<h2>Chi tiết lô đất</h2>
+
+<!-- Dropdown chọn lô đất -->
+<h3>Chọn lô đất để xem chi tiết:</h3>
+<select id="chonLoDat" onchange="hienChiTietLoDat()">
+    <option value="">-- Chọn lô đất --</option>
+    <option value="lo1">Lô đất số 1</option>
+    <option value="lo2">Lô đất số 2</option>
+</select>
+<div id="chiTietLoDat"></div>
+
+<!-- Dropdown chọn nhà -->
+<h3>Chọn nhà để xem chi tiết:</h3>
+<select id="chonNha" onchange="hienChiTietNha()">
+    <option value="">-- Chọn nhà --</option>
+    <option value="nha1">Nhà kiệt Hoàng Diệu</option>
+    <option value="nha2">Nhà mặt tiền Trần Hưng Đạo</option>
+</select>
+<div id="chiTietNha"></div>
+
+<!-- Dropdown chọn mặt bằng lô đất -->
+<h3>Chọn mặt bằng lô đất để xem:</h3>
+<select id="chonMapLoDat" onchange="hienMapLoDat()">
+    <option value="">-- Chọn mặt bằng lô đất --</option>
+    <option value="map1">Mặt bằng Lô đất số 1</option>
+    <option value="map2">Mặt bằng Lô đất số 2</option>
+</select>
+<div id="mapLoDat"></div>
+
+<!-- Dropdown chọn mặt bằng nhà -->
+<h3>Chọn mặt bằng nhà để xem:</h3>
+<select id="chonMapNha" onchange="hienMapNha()">
+    <option value="">-- Chọn mặt bằng nhà --</option>
+    <option value="mapnha1">Mặt bằng Nhà Hoàng Diệu</option>
+    <option value="mapnha2">Mặt bằng Nhà Trần Hưng Đạo</option>
+</select>
+<div id="mapNha"></div>
+
+<!-- Dropdown chọn sổ đỏ lô đất -->
+<h3>Chọn sổ đỏ lô đất:</h3>
+<select id="chonSoDoLoDat" onchange="hienSoDoLoDat()">
+    <option value="">-- Chọn sổ đỏ lô đất --</option>
+    <option value="sodo1">Sổ đỏ Lô đất số 1</option>
+    <option value="sodo2">Sổ đỏ Lô đất số 2</option>
+</select>
+<div id="soDoLoDat"></div>
+
+<!-- Dropdown chọn sổ đỏ nhà -->
+<h3>Chọn sổ đỏ nhà:</h3>
+<select id="chonSoDoNha" onchange="hienSoDoNha()">
+    <option value="">-- Chọn sổ đỏ nhà --</option>
+    <option value="sodonha1">Sổ đỏ Nhà Hoàng Diệu</option>
+    <option value="sodonha2">Sổ đỏ Nhà Trần Hưng Đạo</option>
+</select>
+<div id="soDoNha"></div>
+
+<!-- Dropdown chọn vị trí lô đất trên bản đồ -->
+<h3>Chọn vị trí lô đất trên bản đồ:</h3>
+<select id="chonViTriLoDat" onchange="hienViTriLoDat()">
+    <option value="">-- Chọn vị trí lô đất --</option>
+    <option value="vitri1">Vị trí Lô đất số 1</option>
+    <option value="vitri2">Vị trí Lô đất số 2</option>
+</select>
+<div id="viTriLoDat"></div>
+
+<!-- Dropdown chọn vị trí nhà trên bản đồ -->
+<h3>Chọn vị trí nhà trên bản đồ:</h3>
+<select id="chonViTriNha" onchange="hienViTriNha()">
+    <option value="">-- Chọn vị trí nhà --</option>
+    <option value="vitriNha1">Vị trí Nhà Hoàng Diệu</option>
+    <option value="vitriNha2">Vị trí Nhà Trần Hưng Đạo</option>
+</select>
+<div id="viTriNha"></div>
+
+</section>
+<!-- Sổ đỏ -->
+<h3>Sổ đỏ</h3>
+<img src="https://via.placeholder.com/300x200.png?text=Hinh+So+Do" alt="kiệt hoàng dieu" width="300" />
+
+<!-- Vị trí bản đồ -->
+<h3>Vị trí trên bản đồ</h3>
+<iframe
+  src="https://www.google.com/maps?q=16.829840, 107.092155&hl=vi&z=16&output=embed"
+  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+
+<script>
+function countClick(id) {
+  let count = localStorage.getItem(id) || 0;
+  count++;
+  localStorage.setItem(id, count);
+  document.getElementById('click-' + id).innerText = count;
+}
+window.onload = function () {
+  ['bai1'].forEach(id => {
+    document.getElementById('click-' + id).innerText = localStorage.getItem(id) || 0;
+  });
+};
+
+function hienChiTietLoDat() {
+    const value = document.getElementById("chonLoDat").value;
+    const div = document.getElementById("chiTietLoDat");
+    if (value === "lo1") {
+        div.innerHTML = `<p><strong>Lô 1:</strong> Diện tích 100m², giá 950 triệu, hướng Đông Nam</p>`;
+    } else if (value === "lo2") {
+        div.innerHTML = `<p><strong>Lô 2:</strong> Diện tích 120m², giá 1,2 tỷ, hướng Tây Bắc</p>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+function hienChiTietNha() {
+    const value = document.getElementById("chonNha").value;
+    const div = document.getElementById("chiTietNha");
+    if (value === "nha1") {
+        div.innerHTML = `<p><strong>Nhà kiệt Hoàng Diệu:</strong> 3PN, 2WC, 127.5m², giá 1 tỷ 6xx triệu.</p>`;
+    } else if (value === "nha2") {
+        div.innerHTML = `<p><strong>Nhà mặt tiền Trần Hưng Đạo:</strong> 4PN, 3WC, 150m², giá 2,3 tỷ.</p>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+
+function hienMapLoDat() {
+    const value = document.getElementById("chonMapLoDat").value;
+    const div = document.getElementById("mapLoDat");
+    if (value === "map1") {
+        div.innerHTML = `<p><strong>Mặt bằng Lô 1:</strong><br><img src='https://via.placeholder.com/300x200.png?text=Map+Lo+1'></p>`;
+    } else if (value === "map2") {
+        div.innerHTML = `<p><strong>Mặt bằng Lô 2:</strong><br><img src='https://via.placeholder.com/300x200.png?text=Map+Lo+2'></p>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+function hienMapNha() {
+    const value = document.getElementById("chonMapNha").value;
+    const div = document.getElementById("mapNha");
+    if (value === "mapnha1") {
+        div.innerHTML = `<p><strong>Mặt bằng Nhà Hoàng Diệu:</strong><br><img src='https://via.placeholder.com/300x200.png?text=Map+Nha+Hoang+Dieu'></p>`;
+    } else if (value === "mapnha2") {
+        div.innerHTML = `<p><strong>Mặt bằng Nhà Trần Hưng Đạo:</strong><br><img src='https://via.placeholder.com/300x200.png?text=Map+Nha+Tran+Hung+Dao'></p>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+
+function hienSoDoLoDat() {
+    const value = document.getElementById("chonSoDoLoDat").value;
+    const div = document.getElementById("soDoLoDat");
+    if (value === "sodo1") {
+        div.innerHTML = `<p><strong>Sổ đỏ Lô đất 1:</strong><br><img src='https://via.placeholder.com/300x200.png?text=So+Do+Lo+1'></p>`;
+    } else if (value === "sodo2") {
+        div.innerHTML = `<p><strong>Sổ đỏ Lô đất 2:</strong><br><img src='https://via.placeholder.com/300x200.png?text=So+Do+Lo+2'></p>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+function hienSoDoNha() {
+    const value = document.getElementById("chonSoDoNha").value;
+    const div = document.getElementById("soDoNha");
+    if (value === "sodonha1") {
+        div.innerHTML = `<p><strong>Sổ đỏ Nhà Hoàng Diệu:</strong><br><img src='https://via.placeholder.com/300x200.png?text=So+Do+Nha+Hoang+Dieu'></p>`;
+    } else if (value === "sodonha2") {
+        div.innerHTML = `<p><strong>Sổ đỏ Nhà Trần Hưng Đạo:</strong><br><img src='https://via.placeholder.com/300x200.png?text=So+Do+Nha+Tran+Hung+Dao'></p>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+function hienViTriLoDat() {
+    const value = document.getElementById("chonViTriLoDat").value;
+    const div = document.getElementById("viTriLoDat");
+    if (value === "vitri1") {
+        div.innerHTML = `<iframe src="https://www.google.com/maps?q=16.829840,107.092155&hl=vi&z=16&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>`;
+    } else if (value === "vitri2") {
+        div.innerHTML = `<iframe src="https://www.google.com/maps?q=16.828500,107.090000&hl=vi&z=16&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+function hienViTriNha() {
+    const value = document.getElementById("chonViTriNha").value;
+    const div = document.getElementById("viTriNha");
+    if (value === "vitriNha1") {
+        div.innerHTML = `<iframe src="https://www.google.com/maps?q=16.832000,107.093000&hl=vi&z=16&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>`;
+    } else if (value === "vitriNha2") {
+        div.innerHTML = `<iframe src="https://www.google.com/maps?q=16.833000,107.094000&hl=vi&z=16&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>`;
+    } else {
+        div.innerHTML = "";
+    }
+}
+
+</script>
+<a href="#" onclick="countClick('bai1')">Xem chi tiết lô đất</a>
+<p>Đã có <span id="click-bai1">0</span> lượt xem</p>
+<section id="du-an-noi-bat">
+  <h2>Dự án nổi bật</h2>
+  <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+    <img src="nha_kiet_hoang_dieu.jpeg" alt="Nhà kiệt Hoàng Diệu" style="width: 100%; max-width: 600px;">
+    <div style="padding: 10px;">
+      <h3>BÁN NHÀ 2 TẦNG KIỆT HOÀNG DIỆU – GẦN KHU BẮC SÔNG HIẾU, TP. ĐÔNG HÀ</h3>
+      <p><strong>NHÀ ĐẸP – GIÁ TỐT – VỊ TRÍ TRUNG TÂM!</strong></p>
+      <ul>
+        <li>3 phòng ngủ, 2 phòng vệ sinh</li>
+        <li>Phòng khách, bếp rộng rãi</li>
+        <li>Sân đậu ô tô tiện lợi</li>
+        <li>Hướng: Tây Nam</li>
+        <li>Diện tích: 6m x 22m (127,5m²)</li>
+        <li>Giá bán: 1 tỷ 6xx triệu</li>
+      </ul>
+      <p><strong>Liên hệ:</strong> 0915.050.065 – Gọi để xem nhà trực tiếp và thương lượng!</p>
+    </div>
+  </div>
+</body>
+</html>
