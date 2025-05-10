@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Bất Động Sản - Nguyễn Giang Nam</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .button { padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px; display: inline-block; }
+        .icon { width: 30px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+<h1>Thông tin lô đất cần bán</h1>
+
+<!-- Nút gọi điện thoại -->
+<a href="tel:0915050065" class="button">Gọi ngay: 0915 050 065</a>
+
+<!-- Zalo -->
+<a href="https://zalo.me/0915050065" target="_blank">
+    <img src="https://stc-zaloprofile.zdn.vn/pc/v1/images/zalo_sharelogo.png" class="icon" alt="Zalo" /> Chat Zalo
+</a>
+
+<!-- Facebook cá nhân -->
+<a href="https://www.facebook.com/share/164KsdmDnd/?mibextid=wwXIfr" target="_blank" style="margin-left: 10px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" class="icon" alt="Facebook" /> Facebook: Nguyễn Giang Nam
+</a>
+
+<hr>
+
+<!-- Đếm lượt xem bài viết -->
+<h2>Chi tiết lô đất</h2>
+<a href="#" onclick="countClick('bai1')">Xem chi tiết lô đất</a>
+<p>Đã có <span id="click-bai1">0</span> lượt xem</p>
+
+<!-- Sổ đỏ -->
+<h3>Sổ đỏ</h3>
+<img src="https://via.placeholder.com/300x200.png?text=Hinh+So+Do" alt="kiệt hoàng dieu" width="300" />
+
+<!-- Vị trí bản đồ -->
+<h3>Vị trí trên bản đồ</h3>
+<iframe
+  src="https://www.google.com/maps?q=16.829840, 107.092155&hl=vi&z=16&output=embed"
+  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+
+<script>
+function countClick(id) {
+  let count = localStorage.getItem(id) || 0;
+  count++;
+  localStorage.setItem(id, count);
+  document.getElementById('click-' + id).innerText = count;
+}
+window.onload = function () {
+  ['bai1'].forEach(id => {
+    document.getElementById('click-' + id).innerText = localStorage.getItem(id) || 0;
+  });
+};
+</script>
+<section id="du-an-noi-bat">
+  <h2>Dự án nổi bật</h2>
+  <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+    <img src="nha_kiet_hoang_dieu.jpeg" alt="Nhà kiệt Hoàng Diệu" style="width: 100%; max-width: 600px;">
+    <div style="padding: 10px;">
+      <h3>BÁN NHÀ 2 TẦNG KIỆT HOÀNG DIỆU – GẦN KHU BẮC SÔNG HIẾU, TP. ĐÔNG HÀ</h3>
+      <p><strong>NHÀ ĐẸP – GIÁ TỐT – VỊ TRÍ TRUNG TÂM!</strong></p>
+      <ul>
+        <li>3 phòng ngủ, 2 phòng vệ sinh</li>
+        <li>Phòng khách, bếp rộng rãi</li>
+        <li>Sân đậu ô tô tiện lợi</li>
+        <li>Hướng: Tây Nam</li>
+        <li>Diện tích: 6m x 22m (127,5m²)</li>
+        <li>Giá bán: 1 tỷ 6xx triệu</li>
+      </ul>
+      <p><strong>Liên hệ:</strong> 0915.050.065 – Gọi để xem nhà trực tiếp và thương lượng!</p>
+    </div>
+  </div>
+</section>
+</body>
+</html>
